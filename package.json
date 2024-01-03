@@ -5,10 +5,13 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "lint": "eslint --ext .tsx --ext .ts src/ --fix",
-    "format": "prettier --check --write ./src",
     "start": "react-native start",
-    "test": "jest"
+    // "lint": "eslint --ext .tsx --ext .ts src/ --fix",
+    // "format": "prettier --check --write ./src",
+    // "test": "jest"
+    "lint": "eslint --ignore-path ../../.eslintignore",
+    "format:check": "prettier --check './src/**/*.{js,jsx,scss}'",
+    "test": "jest --collectCoverage"
   },
   "dependencies": {
     "react": "18.2.0",
@@ -47,8 +50,10 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm run test"
+      // "pre-commit": "lint-staged",
+      // "pre-push": "npm run test"
+      "pre-commit": "npm run format:check && npm run lint",
+        "pre-push": "npm run test"
     }
   }
 }
