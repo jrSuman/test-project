@@ -1,4 +1,0 @@
-{
-    "*.{ts,tsx,scss}": ["prettier --check"],
-    "*.{ts,tsx}": ["eslint --ignore-path .eslintignore"]
-}
