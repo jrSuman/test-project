@@ -8,7 +8,8 @@
     "start": "react-native start",
     "lint": "eslint --ignore-path ../../.eslintignore",
     "format:check": "prettier --check './src/**/*.{js,jsx,scss}'",
-    "test": "jest --collectCoverage"
+    "test": "jest --collectCoverage",
+    "lint-staged-pre-commit": "lint-staged --config .lint-staged-pre-commit.json"
   },
   "dependencies": {
     "react": "18.2.0",
@@ -47,7 +48,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run format:check && npm run lint",
+      "pre-commit": "npm run lint-staged-pre-commit",
         "pre-push": "npm run test"
     }
   }
